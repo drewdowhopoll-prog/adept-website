@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "ok-kult",
+    "locale": "fr",
+    "title": "ØK KÜLT",
+    "subtitle": "Premier événement transmédium mystique",
+    "city": "Marseille",
+    "venue": "La Mûrisserie",
+    "address": "44 Cr Julien, 13006 Marseille",
+    "dates": ["2025-10-23T19:00:00+02:00","2025-11-07T19:00:00+01:00"],
+    "datesDisplayFr": "Dates : 23 octobre 2025 ,  7 novembre 2025",
+    "instagram": "ok_kult_",
+    "ics": "/events/ok-kult.ics",
+    "body": []
+  }
+]

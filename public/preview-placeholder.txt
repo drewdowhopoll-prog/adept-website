@@ -1,0 +1,8 @@
+This directory will contain the homepage screenshot.
+
+To generate it:
+1. Ensure the dev server is running: npm run dev
+2. Run: npm run snap:home
+3. The screenshot will be saved as preview-home.png
+
+You can view it at /preview in your browser.

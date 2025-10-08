@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "events": "Events",
+    "music": "Music",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "donate": "Donate"
+  },
+  "footer": {
+    "email": "info@ad-ept.fr",
+    "copyright": "© {year} ADEPT. All rights reserved."
+  },
+  "home": {
+    "hero": {
+      "mission": "Empowering communities through art, technology, and creative innovation",
+      "viewGallery": "View Gallery",
+      "upcomingEvent": "Upcoming Event"
+    },
+    "featuredProject": {
+      "title": "Featured Project",
+      "projectTitle": "Digital Arts Workshop Series",
+      "projectDescription": "An immersive program bringing together artists and technologists to explore the intersection of traditional art forms and emerging digital technologies.",
+      "learnMore": "Learn More"
+    },
+    "upcomingEvent": {
+      "title": "Upcoming Event",
+      "eventTitle": "Community Art Exhibition",
+      "eventDescription": "Join us for an evening celebrating local artists and their innovative works combining traditional and digital media.",
+      "date": "Date",
+      "location": "Location",
+      "register": "Register Now"
+    },
+    "latestNews": {
+      "title": "Latest News",
+      "readMore": "Read More"
+    },
+    "music": {
+      "title": "Music",
+      "description": "Discover sounds from our community of musicians and composers",
+      "track1": "Demo Track 1",
+      "track2": "Demo Track 2"
+    },
+    "newsletter": {
+      "title": "Stay Connected",
+      "description": "Subscribe to our newsletter for updates on events, projects, and opportunities",
+      "placeholder": "Enter your email",
+      "subscribe": "Subscribe"
+    }
+  }
+}
