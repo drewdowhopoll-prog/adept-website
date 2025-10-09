@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "about": "À propos",
+    "projects": "Projets",
+    "events": "Événements",
+    "music": "Musique",
+    "gallery": "Galerie",
+    "contact": "Contact",
+    "donate": "Faire un don"
+  },
+  "footer": {
+    "email": "info@ad-ept.fr",
+    "copyright": "© {year} ADEPT. Tous droits réservés."
+  },
+  "home": {
+    "hero": {
+      "mission": "Autonomiser les communautés par l'art, la technologie et l'innovation créative",
+      "viewGallery": "Voir la galerie",
+      "upcomingEvent": "Événement à venir"
+    },
+    "featuredProject": {
+      "title": "Projet en vedette",
+      "projectTitle": "Série d'ateliers d'arts numériques",
+      "projectDescription": "Un programme immersif réunissant artistes et technologues pour explorer l'intersection des formes d'art traditionnelles et des technologies numériques émergentes.",
+      "learnMore": "En savoir plus"
+    },
+    "upcomingEvent": {
+      "title": "Événement à venir",
+      "eventTitle": "Exposition d'art communautaire",
+      "eventDescription": "Rejoignez-nous pour une soirée célébrant les artistes locaux et leurs œuvres innovantes combinant médias traditionnels et numériques.",
+      "date": "Date",
+      "location": "Lieu",
+      "register": "S'inscrire maintenant"
+    },
+    "latestNews": {
+      "title": "Dernières nouvelles",
+      "readMore": "Lire la suite"
+    },
+    "music": {
+      "title": "Musique",
+      "description": "Découvrez les sons de notre communauté de musiciens et compositeurs",
+      "track1": "Piste démo 1",
+      "track2": "Piste démo 2"
+    },
+    "newsletter": {
+      "title": "Restez connecté",
+      "description": "Abonnez-vous à notre bulletin pour recevoir des mises à jour sur les événements, projets et opportunités",
+      "placeholder": "Entrez votre courriel",
+      "subscribe": "S'abonner"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ADEPT//OK KULT//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:ØK KÜLT
+X-WR-TIMEZONE:Europe/Paris
+BEGIN:VEVENT
+UID:ok-kult-20251023@adept.local
+SUMMARY:ØK KÜLT — Premier événement transmédium mystique
+DTSTART;TZID=Europe/Paris:20251023T190000
+DTEND;TZID=Europe/Paris:20251023T210000
+LOCATION:La Mûrisserie\, 44 Cr Julien\, 13006 Marseille
+DESCRIPTION:ØK KÜLT est un rite artistique contemporain qui relie le monde transcendantal et le monde réel.
+END:VEVENT
+BEGIN:VEVENT
+UID:ok-kult-20251107@adept.local
+SUMMARY:ØK KÜLT — Premier événement transmédium mystique
+DTSTART;TZID=Europe/Paris:20251107T190000
+DTEND;TZID=Europe/Paris:20251107T210000
+LOCATION:La Mûrisserie\, 44 Cr Julien\, 13006 Marseille
+DESCRIPTION:ØK KÜLT est un rite artistique contemporain qui relie le monde transcendantal et le monde réel.
+END:VEVENT
+END:VCALENDAR

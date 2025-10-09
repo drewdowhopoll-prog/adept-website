@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  height: 100%;
+}
+
+.font-display {
+  font-feature-settings: 'liga' 1, 'kern' 1;
+  font-synthesis-weight: none;
+}
+
+@keyframes weight-pulse {
+  0%, 100% {
+    font-variation-settings: 'wght' 700;
+  }
+  50% {
+    font-variation-settings: 'wght' 800;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-weight-pulse {
+    animation: weight-pulse 6s ease-in-out infinite;
+  }
+}
+
+.bg-noise {
+  position: relative;
+}
+
+.bg-noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.03;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.8) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.6) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.7) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 60% 90%, rgba(255, 255, 255, 0.5) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.9) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 90% 30%, rgba(255, 255, 255, 0.7) 0.5px, transparent 0.5px);
+  background-size: 200px 200px, 250px 250px, 180px 180px, 220px 220px, 190px 190px, 240px 240px;
+  background-position: 0 0, 40px 60px, 80px 20px, 120px 100px, 20px 80px, 160px 40px;
+  pointer-events: none;
+}
+
+.mode-minimal h1 {
+  font-family: var(--font-display);
+}
+
+.mode-minimal body,
+.mode-minimal p,
+.mode-minimal .font-ui {
+  font-family: var(--font-ui);
+}
+
+.mode-editorial h1,
+.mode-editorial h2,
+.mode-editorial h3 {
+  font-family: var(--font-display);
+}
+
+.mode-editorial .content-area,
+.mode-editorial .news-content,
+.mode-editorial .project-content {
+  font-family: var(--font-editorial);
+  line-height: 1.7;
+}
+
+.mode-brut h1,
+.mode-brut h2,
+.mode-brut h3,
+.mode-brut h4,
+.mode-brut button {
+  font-family: var(--font-display);
+}
+
+.mode-brut .section-label {
+  font-family: var(--font-display);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.hi { transform: translateY(8px); }
+.hi.hi-in { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .hi, .hi.hi-in { transition: none !important; transform: none !important; opacity: 1 !important; }
+}

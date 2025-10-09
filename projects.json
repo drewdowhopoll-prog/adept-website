@@ -1,0 +1,49 @@
+[
+  {
+    "slug": "ok-kult",
+    "titleFr": "ØK KÜLT — Premier événement transmédium mystique",
+    "subtitleFr": "",
+    "type": "event",
+    "status": "en_cours",
+    "order": 1,
+    "instagram": "ok_kult_",
+    "dates": ["2025-10-23T19:00:00+02:00","2025-11-07T19:00:00+01:00"],
+    "datesDisplayFr": "Dates : 23 octobre 2025 ,  7 novembre 2025",
+    "sortDate": "2025-11-07",
+    "linkFr": "/fr/events/ok-kult",
+    "bodyFr": "ØK KÜLT est un rite artistique contemporain qui relie le monde transcendantal et le monde réel. Les artistes — véritables magicien·ne·s — transforment la matière et le son pour ouvrir une fenêtre sur notre proche avenir. Venez voir, écouter et ressentir « l'autre monde »."
+  },
+  {
+    "slug": "cinema-change",
+    "titleFr": "Cinema Change — projet interactif",
+    "subtitleFr": "Projections simultanées dans plusieurs pays",
+    "type": "programme",
+    "status": "en_cours",
+    "order": 2,
+    "instagram": "cinema_change",
+    "sortDate": "2025-09-01",
+    "bodyFr": "Un dispositif de projections synchronisées et d'échanges en temps réel entre spectateurs et artistes situés dans différents pays."
+  },
+  {
+    "slug": "je-est-un-autre",
+    "titleFr": "Je est un autre — spectacle verbatim",
+    "subtitleFr": "d'après une lettre d'Arthur Rimbaud",
+    "type": "scène",
+    "status": "en_developpement",
+    "order": 3,
+    "plannedPeriodFr": "Printemps 2026",
+    "sortDate": "2026-04-01",
+    "bodyFr": "Création scénique construite à partir de témoignages et d'archives, en écho à la poétique de Rimbaud."
+  },
+  {
+    "slug": "galerie-mobile",
+    "titleFr": "Galerie mobile — Marseille",
+    "subtitleFr": "Galerie itinérante en espace public",
+    "type": "galerie",
+    "status": "en_preparation",
+    "order": 4,
+    "plannedPeriodFr": "Printemps 2026",
+    "sortDate": "2026-04-15",
+    "bodyFr": "Galerie construite sur roues, pensée pour se déployer dans la ville de Marseille : itinéraire urbain, arrêts en espace public, rencontre directe entre œuvres et passants."
+  }
+]
