@@ -100,6 +100,42 @@ export default function Home({params:{locale}}:{params:{locale:string}}){
           </div>
         </div>
 
+        <div className="container mx-auto max-w-7xl mb-24">
+          <div className="border border-zinc-800 p-8 md:p-12">
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <h2 className="text-sm uppercase tracking-wider text-zinc-400">Upcoming Events</h2>
+                <Link
+                  href={`/${locale}/events`}
+                  className="text-sm text-zinc-400 hover:text-white transition-colors"
+                >
+                  View all →
+                </Link>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-3xl md:text-5xl font-display font-bold">ØK KÜLT</h3>
+                <p className="text-lg md:text-xl text-zinc-400">23 octobre — La Mûresserie</p>
+                <p className="text-base md:text-lg text-zinc-300 leading-relaxed max-w-3xl">
+                  Le mystique, l'immense, le cosmos — ØK KÜLT.<br />
+                  23 octobre — La Mûresserie.<br />
+                  Immersion transmédium mystique : musique & peinture, vidéo-art & photo, concerts acoustiques & DJ set, séance de psychomagie & lecture de la carte natale de la Ve République.<br />
+                  12 artistes, 12 médiums — un soir où l'avenir prend corps.
+                </p>
+                <div className="pt-4">
+                  <Link
+                    href={`/${locale}/events/ok-kult`}
+                    className="inline-flex items-center gap-2 px-6 py-3 border border-white/60 hover:border-white transition-colors"
+                  >
+                    Learn more
+                    <ArrowUpRight size={16} />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="container mx-auto max-w-7xl">
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {cards.map((card, index) => (

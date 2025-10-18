@@ -140,34 +140,34 @@ export default function EventDetailPage({
             <section className="space-y-4 pt-8 border-t border-white/10">
               <h2 className="text-sm uppercase tracking-wider text-white/60">Artistes</h2>
               <div className="flex flex-wrap gap-3">
-                {(ev as any).participants.map((participant: string, idx: number) => (
-                  <span
-                    key={idx}
-                    className="px-4 py-2 border border-white/20 rounded-lg text-sm hover:border-white/40 transition-colors"
-                  >
-                    {participant}
-                  </span>
-                ))}
-              </div>
-            </section>
-          )}
+                {(ev as any).participants.map((participant: any, idx: number) => {
+                  const participantName = typeof participant === 'string' ? participant : participant.name;
+                  const instagramHandle = typeof participant === 'object' ? participant.instagram : null;
 
-          {(ev as any).instagramHandles && (ev as any).instagramHandles.length > 0 && (
-            <section className="space-y-4 pt-8 border-t border-white/10">
-              <h2 className="text-sm uppercase tracking-wider text-white/60">Instagram</h2>
-              <div className="flex flex-wrap gap-3">
-                {(ev as any).instagramHandles.map((handle: string, idx: number) => (
-                  <a
-                    key={idx}
-                    href={`https://instagram.com/${handle.replace(/^@/, '')}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 border border-white/20 rounded-lg text-sm hover:border-white/40 transition-colors inline-flex items-center gap-2 group"
-                  >
-                    {handle}
-                    <ExternalLink className="w-3 h-3 opacity-60 group-hover:opacity-100 transition-opacity" />
-                  </a>
-                ))}
+                  if (instagramHandle) {
+                    return (
+                      <a
+                        key={idx}
+                        href={`https://instagram.com/${instagramHandle}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 border border-white/20 rounded-lg text-sm hover:border-white/40 transition-colors no-underline"
+                        style={{ textDecoration: 'none' }}
+                      >
+                        {participantName}
+                      </a>
+                    );
+                  }
+
+                  return (
+                    <span
+                      key={idx}
+                      className="px-4 py-2 border border-white/20 rounded-lg text-sm"
+                    >
+                      {participantName}
+                    </span>
+                  );
+                })}
               </div>
             </section>
           )}
