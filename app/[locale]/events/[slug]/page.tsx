@@ -116,15 +116,61 @@ export default function EventDetailPage({
             </a>
           </div>
 
-          <article className="prose prose-invert prose-lg max-w-none pt-8 border-t border-white/10">
-            <div className="space-y-6">
-              {ev.body.map((para, idx) => (
-                <p key={idx} className="text-white/80 leading-relaxed">
-                  {para}
-                </p>
-              ))}
-            </div>
-          </article>
+          {((ev as any).description || ev.body.length > 0) && (
+            <article className="prose prose-invert prose-lg max-w-none pt-8 border-t border-white/10">
+              <div className="space-y-6">
+                {(ev as any).description ? (
+                  (ev as any).description.split('\n').map((para: string, idx: number) => (
+                    <p key={idx} className="text-white/80 leading-relaxed whitespace-pre-line">
+                      {para}
+                    </p>
+                  ))
+                ) : (
+                  ev.body.map((para, idx) => (
+                    <p key={idx} className="text-white/80 leading-relaxed">
+                      {para}
+                    </p>
+                  ))
+                )}
+              </div>
+            </article>
+          )}
+
+          {(ev as any).participants && (ev as any).participants.length > 0 && (
+            <section className="space-y-4 pt-8 border-t border-white/10">
+              <h2 className="text-sm uppercase tracking-wider text-white/60">Artistes</h2>
+              <div className="flex flex-wrap gap-3">
+                {(ev as any).participants.map((participant: string, idx: number) => (
+                  <span
+                    key={idx}
+                    className="px-4 py-2 border border-white/20 rounded-lg text-sm hover:border-white/40 transition-colors"
+                  >
+                    {participant}
+                  </span>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {(ev as any).instagramHandles && (ev as any).instagramHandles.length > 0 && (
+            <section className="space-y-4 pt-8 border-t border-white/10">
+              <h2 className="text-sm uppercase tracking-wider text-white/60">Instagram</h2>
+              <div className="flex flex-wrap gap-3">
+                {(ev as any).instagramHandles.map((handle: string, idx: number) => (
+                  <a
+                    key={idx}
+                    href={`https://instagram.com/${handle.replace(/^@/, '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 border border-white/20 rounded-lg text-sm hover:border-white/40 transition-colors inline-flex items-center gap-2 group"
+                  >
+                    {handle}
+                    <ExternalLink className="w-3 h-3 opacity-60 group-hover:opacity-100 transition-opacity" />
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
         </div>
       </div>
     </div>

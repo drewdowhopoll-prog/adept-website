@@ -68,6 +68,12 @@ export default function EventsIndexPage({
                     <p className="text-lg text-white/70">{event.subtitle}</p>
                   )}
 
+                  {(event as any).description && (
+                    <p className="text-white/60 line-clamp-3">
+                      {(event as any).description.split('\n')[0]}
+                    </p>
+                  )}
+
                   <div className="flex items-start gap-2 text-white/60 pt-2 border-t border-white/10">
                     <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
                     <div className="text-sm">
