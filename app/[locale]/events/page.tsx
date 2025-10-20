@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Calendar, MapPin } from 'lucide-react';
 import { getUpcoming } from '@/lib/events';
+import { formatEventDate } from '@/lib/formatDate';
 
 export default function EventsIndexPage({
   params: { locale },
@@ -8,22 +9,6 @@ export default function EventsIndexPage({
   params: { locale: string };
 }) {
   const list = getUpcoming(locale);
-
-  const formatDate = (dateStr: string) => {
-    const date = new Date(dateStr);
-    const options: Intl.DateTimeFormatOptions = {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    };
-    return date.toLocaleDateString('fr-FR', options);
-  };
-
-  const getNextDate = (dates: string[]) => {
-    const now = new Date();
-    const future = dates.filter(d => new Date(d) > now).sort();
-    return future[0] || dates[0];
-  };
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -56,7 +41,7 @@ export default function EventsIndexPage({
                   <div className="flex items-center gap-2 text-sm text-white/60">
                     <Calendar className="w-4 h-4" />
                     <time>
-                      {(event as any).datesDisplayFr || formatDate(getNextDate(event.dates))}
+                      {formatEventDate((event as any).startDate, (event as any).endDate)}
                     </time>
                   </div>
 

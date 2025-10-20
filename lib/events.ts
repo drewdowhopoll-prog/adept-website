@@ -8,7 +8,13 @@ export function getEvents(locale: string) {
 
 export function getUpcoming(locale: string) {
   const now = new Date();
-  return getEvents(locale).filter(e => e.dates.some(d => new Date(d) > now));
+  return getEvents(locale).filter(e => {
+    const event = e as any;
+    if (event.startDate) {
+      return new Date(event.startDate) > now;
+    }
+    return false;
+  });
 }
 
 export function getBySlug(locale: string, slug: string) {

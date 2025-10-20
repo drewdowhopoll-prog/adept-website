@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ExternalLink, Calendar } from 'lucide-react';
 import { getBySlug } from '@/lib/events';
+import { formatEventDate } from '@/lib/formatDate';
 
 export async function generateStaticParams() {
   return [
@@ -18,19 +19,8 @@ export default function EventDetailPage({
   const ev = getBySlug(locale, slug);
   if (!ev) notFound();
 
-  const formatDate = (dateStr: string) => {
-    const date = new Date(dateStr);
-    const options: Intl.DateTimeFormatOptions = {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-    };
-    return date.toLocaleDateString('fr-FR', options);
-  };
-
   const mapsUrl = `https://maps.google.com/?q=${encodeURIComponent(`${ev.venue} ${ev.address}`)}`;
+  const dateLabel = formatEventDate((ev as any).startDate, (ev as any).endDate);
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -88,19 +78,9 @@ export default function EventDetailPage({
           </header>
 
           <section className="space-y-4">
-            <h2 className="text-sm uppercase tracking-wider text-white/60">Dates</h2>
-            <div className="space-y-2">
-              {(ev as any).datesDisplayFr ? (
-                <div className="text-2xl font-medium">
-                  {(ev as any).datesDisplayFr}
-                </div>
-              ) : (
-                ev.dates.map((date, idx) => (
-                  <div key={idx} className="text-2xl font-medium">
-                    {formatDate(date)}
-                  </div>
-                ))
-              )}
+            <h2 className="text-sm uppercase tracking-wider text-white/60">Date</h2>
+            <div className="text-2xl font-medium">
+              {dateLabel}
             </div>
           </section>
 

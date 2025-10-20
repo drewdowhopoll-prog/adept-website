@@ -7,8 +7,8 @@
     "city": "Marseille",
     "venue": "La Mûrisserie",
     "address": "44 Cr Julien, 13006 Marseille",
-    "dates": ["2025-10-23T19:00:00+02:00"],
-    "datesDisplayFr": "23 octobre 2025",
+    "startDate": "2025-10-23",
+    "endDate": null,
     "description": "Le mystique, l'immense, le cosmos — ØK KÜLT.\n23 octobre — La Mûresserie.\nImmersion transmédium mystique : musique & peinture, vidéo-art & photo, concerts acoustiques & DJ set, séance de psychomagie & lecture de la carte natale de la Ve République.\n12 artistes, 12 médiums — un soir où l'avenir prend corps.\nNous mobilisons tous les médiums que nous pouvons rassembler — et ce n'est qu'un début. Le monde est infini, l'art aussi.\nØK KÜLT, en tant qu'initiative d'ADEPT, est étroitement lié à la transmédiumité — le passage d'un médium à l'autre. Nous jouons aussi avec le mot « médium », qui en français désigne à la fois un support artistique et un voyant : celui qui lit, dans le réel, les signes de ce qui nous attend.",
     "participants": [
       {

@@ -1,8 +1,12 @@
 import Link from "next/link";
 import { Instagram, ArrowUpRight } from "lucide-react";
 import { TypefaceModeToggle } from "@/components/TypefaceModeToggle";
+import { getBySlug } from "@/lib/events";
+import { formatEventDate } from "@/lib/formatDate";
 
 export default function Home({params:{locale}}:{params:{locale:string}}){
+  const okKultEvent = getBySlug(locale, "ok-kult");
+  const eventDate = okKultEvent ? formatEventDate((okKultEvent as any).startDate, (okKultEvent as any).endDate) : "23 octobre 2025";
   const navItems = [
     { label: "About", href: `/${locale}/about` },
     { label: "Projects", href: `/${locale}/projects` },
@@ -115,7 +119,7 @@ export default function Home({params:{locale}}:{params:{locale:string}}){
 
               <div className="space-y-4">
                 <h3 className="text-3xl md:text-5xl font-display font-bold">ØK KÜLT</h3>
-                <p className="text-lg md:text-xl text-zinc-400">23 octobre — La Mûresserie</p>
+                <p className="text-lg md:text-xl text-zinc-400">{eventDate} — La Mûresserie</p>
                 <p className="text-base md:text-lg text-zinc-300 leading-relaxed max-w-3xl">
                   Le mystique, l'immense, le cosmos — ØK KÜLT.<br />
                   23 octobre — La Mûresserie.<br />
