@@ -1,6 +1,5 @@
 import "./globals.css";
 import { Syne, Space_Grotesk, EB_Garamond } from "next/font/google";
-import FontBadge from "@/components/dev/FontBadge";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -27,7 +26,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="fr" suppressHydrationWarning className={`${syne.variable} ${spaceGrotesk.variable} ${ebGaramond.variable}`}>
       <body className="min-h-screen bg-black text-white antialiased font-ui">
         {children}
-        {process.env.NODE_ENV !== 'production' ? <FontBadge /> : null}
       </body>
     </html>
   );
