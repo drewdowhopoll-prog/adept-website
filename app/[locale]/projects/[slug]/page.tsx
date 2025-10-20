@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getProjectBySlug, listProjectsFr, igUrl } from '@/lib/projects';
 import { Instagram } from 'lucide-react';
+import { formatEventDate } from '@/lib/formatDate';
 
 export async function generateStaticParams() {
   const projects = listProjectsFr();
@@ -29,10 +30,13 @@ export default function ProjectDetailPage({
   }
 
   const getDateLine = () => {
-    if (p.datesDisplayFr) return p.datesDisplayFr;
     if (p.plannedPeriodFr) return p.plannedPeriodFr;
-    if (p.dates && p.dates[0]) {
-      const dt = new Date(p.dates[0]);
+    if ((p as any).startDate) {
+      const formatted = formatEventDate((p as any).startDate, (p as any).endDate);
+      return formatted ? `Date : ${formatted}` : '';
+    }
+    if ((p as any).dates && (p as any).dates[0]) {
+      const dt = new Date((p as any).dates[0]);
       return dt.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
     }
     return '';
