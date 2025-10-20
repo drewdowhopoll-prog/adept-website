@@ -1,18 +1,10 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getArtworkBySlug, listArtworks } from "@/lib/artworks";
+import { getArtworkBySlug, type Artwork } from "@/lib/artworks";
 import artistsData from "@/data/artists.json";
-
-export async function generateStaticParams() {
-  const artworks = listArtworks();
-  const params = [];
-  for (const locale of ['fr', 'en']) {
-    for (const artwork of artworks) {
-      params.push({ locale, slug: artwork.slug });
-    }
-  }
-  return params;
-}
 
 export default function ArtworkPage({
   params,
@@ -20,16 +12,24 @@ export default function ArtworkPage({
   params: { locale: string; slug: string };
 }) {
   const { locale, slug } = params;
+  const [cart, setCart] = useState<Artwork[]>([]);
+  const [cartOpen, setCartOpen] = useState(false);
 
   const artwork = getArtworkBySlug(slug);
   if (!artwork) {
     notFound();
   }
 
+  const [imgSrc, setImgSrc] = useState(artwork.image);
   const artist = artistsData.find(a => a.slug === artwork.artistSlug);
 
   const formatPrice = (price: number) => {
     return price.toLocaleString('fr-FR').replace(',', ' ');
+  };
+
+  const addToCart = () => {
+    setCart([...cart, artwork]);
+    setCartOpen(true);
   };
 
   return (
@@ -44,6 +44,12 @@ export default function ArtworkPage({
               <Link href={`/${locale}/gallery`} className="text-sm text-white/60 hover:text-white transition-colors">
                 ← Back to Gallery
               </Link>
+              <button
+                onClick={() => setCartOpen(!cartOpen)}
+                className="px-4 py-2 border border-white/20 rounded hover:border-white/60 transition-colors text-sm"
+              >
+                Cart ({cart.length})
+              </button>
             </div>
           </div>
         </div>
@@ -54,11 +60,12 @@ export default function ArtworkPage({
           <div>
             <div className="bg-white/5 overflow-hidden">
               <img
-                src={artwork.image}
+                src={imgSrc}
                 alt={artwork.alt}
                 width={1200}
                 height={750}
                 className="w-full h-full object-contain"
+                onError={() => setImgSrc('/gallery/placeholder.svg')}
               />
             </div>
           </div>
@@ -99,23 +106,56 @@ export default function ArtworkPage({
                 {formatPrice(artwork.price)} €
               </div>
               <div className="flex gap-4">
-                <Link
-                  href={`/${locale}/gallery`}
-                  className="flex-1 px-8 py-4 text-center border border-white/20 hover:border-white/60 transition-colors font-medium"
+                <button
+                  onClick={addToCart}
+                  className="flex-1 px-8 py-4 border border-white/20 hover:border-white/60 transition-colors font-medium"
                 >
-                  Back to Gallery
-                </Link>
-                <a
-                  href={`mailto:contact@ad-ept.fr?subject=Inquiry about ${artwork.title}`}
-                  className="flex-1 px-8 py-4 text-center bg-white text-black hover:bg-white/90 transition-colors font-medium"
-                >
-                  Inquire
-                </a>
+                  Add to Cart
+                </button>
+                <button className="flex-1 px-8 py-4 bg-white text-black hover:bg-white/90 transition-colors font-medium">
+                  Buy Now
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {cartOpen && (
+        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center" onClick={() => setCartOpen(false)}>
+          <div className="bg-neutral-900 p-8 max-w-2xl w-full mx-4 max-h-[80vh] overflow-auto" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold">Cart ({cart.length})</h2>
+              <button onClick={() => setCartOpen(false)} className="text-white/60 hover:text-white">✕</button>
+            </div>
+            {cart.length === 0 ? (
+              <p className="text-white/60">Your cart is empty</p>
+            ) : (
+              <div className="space-y-4">
+                {cart.map((item, idx) => (
+                  <div key={idx} className="flex gap-4 border-b border-white/10 pb-4">
+                    <img src={item.image} alt={item.alt} className="w-20 h-20 object-cover" />
+                    <div className="flex-1">
+                      <h3 className="font-bold">{item.title}</h3>
+                      <p className="text-sm text-white/60">{artist?.name}</p>
+                      <p className="text-white/80 mt-1">{formatPrice(item.price)} €</p>
+                    </div>
+                  </div>
+                ))}
+                <div className="pt-4 border-t border-white/10">
+                  <div className="flex justify-between text-xl font-bold mb-4">
+                    <span>Total</span>
+                    <span>{formatPrice(cart.reduce((sum, item) => sum + item.price, 0))} €</span>
+                  </div>
+                  <button className="w-full px-6 py-3 bg-white text-black font-medium hover:bg-white/90 transition-colors">
+                    Checkout
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
